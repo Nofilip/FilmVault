@@ -1,0 +1,90 @@
+
+
+<section class="grid gap-4 mx-6 font-bold sm:grid-cols-2 lg:grid-cols-4 sm:my-8">
+  <!-- Gratis frakt & returer -->
+  <div class="p-2 gap-4 flex items-center lg:justify-center lg:text-center">
+    <span class="text-3xl"><fa-icon [icon]="faEarthAmerica"></fa-icon></span>
+    <span>Gratis frakt & returer</span>
+  </div>
+  
+  <!-- Expressfrakt -->
+  <div class="p-2 gap-4 flex items-center lg:justify-center lg:text-center">
+    <span class="text-3xl"><fa-icon [icon]="faJetFighter"></fa-icon></span>
+    <span>Expressfrakt</span>
+  </div>
+
+  <!-- Säkra betalningar -->
+  <div class="p-2 gap-4 flex items-center lg:justify-center lg:text-center">
+    <span class="text-3xl"><fa-icon [icon]="faShieldHalved"></fa-icon></span>
+    <span>Säkra betalningar</span>
+  </div>
+
+  <!-- Nyheter varje dag -->
+  <div class="p-2 gap-4 flex items-center lg:justify-center lg:text-center">
+    <span class="text-3xl"><fa-icon [icon]="faSmileBeam"></fa-icon></span>
+    <span>Nyheter varje dag</span>
+  </div>
+</section>
+
+<section>
+  <div class="w-full mx-auto mt-4 sm:hidden">
+    <!-- Toggle sektioner -->
+    <div *ngFor="let title of ['Om oss', 'Kontakt', 'Mina sidor']; let i = index">
+      <div class="border-b border-gray-200">
+        <button 
+          class="w-full text-left py-2 px-4 flex justify-between items-center bg-gray-300 hover:bg-gray-200"
+          (click)="toggleSection(i)">
+          {{ title }}
+          <span class="text-lg transform transition-transform" [ngClass]="{'rotate-180': openIndex === i}">
+            ▼
+          </span>
+        </button>
+
+        <!-- Dold sektion -->
+        <div [ngClass]="{'max-h-40 opacity-100': openIndex === i, 'max-h-0 opacity-0': openIndex !== i}" class="overflow-hidden transition-all duration-300">
+          <div class="p-4 bg-gray-400">
+            <ul class="list-disc pl-5">
+              <li *ngIf="title === 'Om oss'"><a href="#">Vår historia</a></li>
+              <li *ngIf="title === 'Om oss'"><a href="#">Vår vision</a></li>
+              <li *ngIf="title === 'Om oss'"><a href="#">Teamet</a></li>
+              <li *ngIf="title === 'Kontakt'"><a href="#">Kundtjänst</a></li>
+              <li *ngIf="title === 'Kontakt'"><a href="#">Support</a></li>
+              <li *ngIf="title === 'Kontakt'"><a href="#">Hitta oss</a></li>
+              <li *ngIf="title === 'Mina sidor'"><a href="#">Orderhistorik</a></li>
+              <li *ngIf="title === 'Mina sidor'"><a href="#">Inställningar</a></li>
+              <li *ngIf="title === 'Mina sidor'"><a href="#">Logga ut</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid för större skärmar -->
+  <div class="hidden sm:grid grid-cols-3 bg-gray-300 p-4 rounded-lg">
+    <div class="grid">
+      <h1 class="font-bold mb-2">Om oss</h1>
+      <span>Vår historia</span>
+      <span>Vår vision</span>
+      <span>Teamet</span>
+    </div>
+    <div class="grid">
+      <h1 class="font-bold mb-2">Kontakt</h1>
+      <span>Kundtjänst</span>
+      <span>Support</span>
+      <span>Hitta oss</span>
+    </div>
+    <div class="grid">
+      <h1 class="font-bold mb-2">Mina sidor</h1>
+      <span>Orderhistorik</span>
+      <span>Inställningar</span>
+      <span>Logga ut</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer med copyright -->
+<div class="flex justify-center items-center p-4 gap-2">
+  <span><fa-icon [icon]="faCopyright"></fa-icon></span>
+  <span class="text-sm">2025 Bokiverse - Alla rättigheter reserverade</span>
+</div>
