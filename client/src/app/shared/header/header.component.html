@@ -1,0 +1,43 @@
+<header class="bg-white shadow-md p-4">
+  <section class="grid grid-cols-12 sm:flex sm:justify-between items-center w-full">
+
+    <div class="col-span-12 w-full sm:w-1/4 pb-2 cursor-pointer">
+      <a routerLink="/">
+        <img class="w-full" src="https://placehold.co/200x100" alt="Logga">
+      </a>
+    </div>
+
+    <div class="col-span-8 sm:flex sm:flex-grow sm:mx-4">
+      <form 
+      class="w-full"
+      action="">
+        <input 
+          class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-600"
+          type="search"
+          placeholder="Sök här" 
+          name="" 
+          id="">
+      </form>
+    </div>
+    <div class="col-span-4 flex justify-end gap-3 ml-4 relative">
+      <a href="#"><fa-icon class="text-2xl" [icon]="faBasketShopping"></fa-icon></a>
+      <a href="#"><fa-icon class="text-2xl" [icon]="faHeart"></fa-icon></a>
+      <button (click)="isMenuOpen = !isMenuOpen" class="text-gray-800 text-2xl cursor-pointer">
+        <span><fa-icon [icon]="faBars"></fa-icon></span>
+      </button>
+    
+
+  
+
+      <!-- Hamburgermeny Dropdown -->
+      <div *ngIf="isMenuOpen" 
+        class="absolute top-full right-0 mt-2 w-30 bg-white border border-gray-200 shadow-lg rounded-md z-20 animate-fade-in">
+        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hem</a>
+        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Filmer</a>
+        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mina sidor</a>
+        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Kontakt</a>
+      </div>
+    </div>
+
+  </section>
+</header>
