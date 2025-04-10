@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { HiddenSpotComponent } from "../../components/hidden-spot/hidden-spot.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, HiddenSpotComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit, OnDestroy {
@@ -32,4 +33,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         clearInterval(this.intervalId);
       }
     }
+   
+    spots = [
+      { id: 1, title: 'Action', imageURL: 'https://placehold.co/400x300' },
+      { id: 2, title: 'Komedi', imageURL: 'https://placehold.co/400x300' },
+      { id: 3, title: 'Thriller', imageURL: 'https://placehold.co/400x300' }
+    ];
 }
