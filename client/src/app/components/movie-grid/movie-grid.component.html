@@ -1,0 +1,17 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+  <div *ngFor="let film of films" class="bg-white rounded-lg shadow-md relative">
+    <img [src]="film.imageUrl" alt="Movie Image" class="w-full">
+    <a href="#"><fa-icon class="text-3xl absolute right-4 bottom-26" [icon]="faHeart"></fa-icon></a>
+    <div class="p-4">
+      <div class="flex justify-between items-start">
+        <h1 class="font-bold text-2xl col-span-1">{{ film.title }}</h1>
+        <h2>{{film.price}} SEK</h2>
+      </div>
+
+        <div>
+          <p class="text-sm pt-2 text-gray-600">{{film.genre}}</p>
+        </div>
+      
+    </div>
+  </div>
+</div>
