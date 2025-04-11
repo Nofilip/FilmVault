@@ -29,9 +29,9 @@ export class AppComponent {
 
     // Vi skickar ett GET-anrop till backend för att hämta
     // uppgifter.
-    this.http.get('/api/tasks').subscribe(task => {
+    this.http.get('/api/films').subscribe(films => {
       // Skriv ut uppgifterna till konsolen i webbläsaren.
-      console.log(task);
+      console.log(films);
     });
 
   }
