@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './routes/home/home.component';
-import { MovieGridComponent } from './components/movie-grid/movie-grid.component';
+import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 
 
 
 export const routes: Routes = [
   
     { path: '', component: HomeComponent },
-    { path: 'movies/:id', component: MovieGridComponent}
+    { path: 'movies/:slug', component: MovieDetailsComponent}
 
 ]
 
