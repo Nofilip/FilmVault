@@ -1,1 +1,25 @@
-<p>movie-details works!</p>
+
+<div *ngIf="film" class="grid grid-cols-1 gap-4 p-6">
+  <div class="bg-white rounded-lg shadow-md sm:flex sm:flex-row sm:gap-6">
+      <div class="relative sm:w-1/3 w-full aspect-square sm:aspect-auto sm:h-auto">
+        <img [src]="film.imageUrl" alt="Movie Image" class="w-full h-full object-cover rounded-lg">
+        <a href="#">
+          <fa-icon class="text-3xl absolute right-4 bottom-4" [icon]="faHeart"></fa-icon>
+        </a>
+      </div>
+      <div class="p-4 sm:w-1/2">    
+          <h1 class="font-bold text-2xl">{{ film.title }}</h1>
+
+            <p class="text-sm pt-2 text-gray-600">{{film.genre}}</p>
+
+            <p class="mt-4 sm:max-w-96">{{film.description}}</p>
+
+            <h2 class="mt-4">{{film.price}} SEK</h2>
+
+          <button class="bg-gray-500 text-white font-semibold py-2 px-6 rounded-lg shadow-lg hover:bg-gray-600 transition-colors duration-200 w-full mt-4 cursor-pointer sm:max-w-60">
+            Lägg i varukorg
+          </button>
+        
+      </div>
+  </div>
+</div>
