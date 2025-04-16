@@ -1,1 +1,25 @@
-<p>related-films works!</p>
+<div *ngIf="film.length > 0" class="hidden sm:block">
+  <h2 class="text-xl font-bold mb-4 text-center">Relaterade filmer:</h2>
+    <div class="flex gap-6">
+      <a
+      *ngFor="let film of film"
+      [routerLink]="['/movies', film.slug]"
+      class="w-full sm:w-1/3 p-4 no-underline text-black"
+     >
+          <div class="bg-white rounded-lg shadow p-4 h-full">
+            <img [src]="film.imageUrl" alt="Movie Image" class="w-full rounded">
+              <div class="flex justify-between items-start mb-1 ">
+                <h3 class="sm:text-sm text-lg font-bold mt-1">{{ film.title }}</h3>
+                <p class="text-sm font-bold text-right mt-1">{{ film.price }} SEK</p>
+              </div>
+              <p class="text-sm text-gray-600">{{ film.genre }}</p>
+          </div>
+      </a>
+    </div>
+  </div>
+
+
+
+<div *ngIf="film.length === 0">
+  <p class="text-center">Inga relaterade filmer hittades för denna genre.</p>
+</div>

@@ -1,5 +1,5 @@
 export interface films {
-  id?: number;
+  id: number;
   title: string;
   genre: string;
   description: string;
