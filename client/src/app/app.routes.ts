@@ -4,10 +4,12 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 
 
 
+
 export const routes: Routes = [
   
     { path: '', component: HomeComponent },
     { path: 'movies/:slug', component: MovieDetailsComponent}
+    
 
 ]
 

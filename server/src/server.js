@@ -39,3 +39,21 @@ app.get("/api/films/:slug", (req, res) => {
     res.status(500).send("Något gick fel när vi hämtade filmen.");
   }
 });
+
+app.get('/api/films/genre/:genre/:id', (req, res) => {
+  const genre = req.params.genre;
+  const id = req.params.id;
+  
+  try {
+    const films = db.prepare("SELECT * FROM films WHERE genre = ? AND id != ? LIMIT 3").all(genre, id);
+
+    if (films.length > 0) {
+      res.json(films);  // Skickar tillbaka filmer av samma genre
+    } else {
+      res.status(404).json({ message: "Inga filmer hittades för den här genren." });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Något gick fel när vi hämtade filmerna.");
+  }
+});
