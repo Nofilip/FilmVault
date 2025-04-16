@@ -1,10 +1,10 @@
 
 <div *ngIf="film" class="grid grid-cols-1 gap-4 p-6">
   <div class="bg-white rounded-lg shadow-md sm:flex sm:flex-row sm:gap-6">
-      <div class="relative sm:w-1/3 w-full aspect-square sm:aspect-auto sm:h-auto">
-        <img [src]="film.imageUrl" alt="Movie Image" class="w-full h-full object-cover rounded-lg">
+      <div class="relative sm:w-1/3 w-full sm:aspect-auto sm:h-auto">
+        <img [src]="film.imageUrl" alt="Movie Image" class="w-full h-full object-cover rounded-lg lg:p-6">
         <a href="#">
-          <fa-icon class="text-3xl absolute right-4 bottom-4" [icon]="faHeart"></fa-icon>
+          <fa-icon class="sm:hidden text-3xl absolute right-4 bottom-4" [icon]="faHeart"></fa-icon>
         </a>
       </div>
       <div class="p-4 sm:w-1/2">    
@@ -23,3 +23,5 @@
       </div>
   </div>
 </div>
+
+<app-related-films *ngIf="film && film.id" [genre]="film.genre" [currentFilmId]="film.id"></app-related-films>
