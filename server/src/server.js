@@ -7,6 +7,39 @@ const app = express();
 
 const db = sqlite3('./db/films.db');
 
+
+app.get('/api/films/search', (req, res) => {
+  const query = req.query.query?.toString().toLowerCase();
+  console.log('Received query:', query); // Logga den mottagna queryn
+
+  if (!query) {
+    return res.status(400).json({ error: 'Ingen sökterm angiven' });
+  }
+
+  try {
+    const stmt = db.prepare(`
+      SELECT * FROM films 
+      WHERE LOWER(title) LIKE ? 
+      OR LOWER(genre) LIKE ?
+    `);
+  
+
+    const results = stmt.all(`%${query}%`, `%${query}%`);
+
+    if (results.length === 0) {
+      console.log('No results found for query:', query);
+      return res.json([]);  // Skicka en tom lista istället för 404
+    }
+
+    // Om resultat hittas, skicka tillbaka dem som JSON
+    res.json(results);
+  } catch (err) {
+    res.status(500).send("Något gick fel när vi hämtade filmerna.");
+  }
+});
+
+
+
 app.get("/api/films", (req, res) => {
   try {
     
@@ -40,6 +73,9 @@ app.get("/api/films/:slug", (req, res) => {
   }
 });
 
+
+
+
 app.get('/api/films/genre/:genre/:id', (req, res) => {
   const genre = req.params.genre;
   const id = req.params.id;
@@ -48,7 +84,7 @@ app.get('/api/films/genre/:genre/:id', (req, res) => {
     const films = db.prepare("SELECT * FROM films WHERE genre = ? AND id != ? LIMIT 3").all(genre, id);
 
     if (films.length > 0) {
-      res.json(films);  // Skickar tillbaka filmer av samma genre
+      res.json(films); 
     } else {
       res.status(404).json({ message: "Inga filmer hittades för den här genren." });
     }

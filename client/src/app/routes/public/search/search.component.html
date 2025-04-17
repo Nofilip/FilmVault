@@ -1,0 +1,32 @@
+<div *ngIf="results.length > 0; else noResults">
+  <h2 class="text-xl font-semibold text-gray-700 text-center">
+    {{ results.length }} Sökresultat för: <span class="italic text-gray-600">"{{ query }}"</span>
+  </h2>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+  <div *ngFor="let film of results" class="bg-white rounded-lg shadow-md relative">
+    <a [routerLink]="['/movies', film.slug]">
+      <img [src]="film.imageUrl" alt="Movie Image" class="w-full rounded-t-lg">
+    </a>
+    <div class="p-4">
+      <div class="flex justify-between items-start">
+        <h1 class="font-bold text-sm">{{ film.title }}</h1>
+        <h2 class="font-bold text-sm">{{ film.price }} SEK</h2>
+      </div>
+
+      <div>
+        <p class="text-sm pt-2 text-gray-600">{{ film.genre }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noResults>
+  <div class="p-6 text-center">
+    <!-- Visa felmeddelande om det finns -->
+    <p class="text-gray-500 text-lg" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <!-- Visa standardmeddelande om inget felmeddelande finns -->
+    <p class="text-gray-500 text-lg" *ngIf="!errorMessage">Inga resultat hittades.</p>
+  </div>
+</ng-template>

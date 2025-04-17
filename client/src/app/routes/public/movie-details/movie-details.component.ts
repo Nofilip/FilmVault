@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { films } from '../../../types/movie';
+import { films } from '../../../../types/movie';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { CommonModule } from '@angular/common';
-import { RelatedFilmsComponent } from "../../components/related-films/related-films.component";
+import { RelatedFilmsComponent } from "../../../components/related-films/related-films.component";
 
 @Component({
   selector: 'app-movie-details',

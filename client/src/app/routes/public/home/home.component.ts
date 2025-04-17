@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy, inject } from '@angular/core';
-import { HiddenSpotComponent } from "../../components/hidden-spot/hidden-spot.component";
-import { MovieGridComponent } from '../../components/movie-grid/movie-grid.component';
+import { HiddenSpotComponent } from "../../../components/hidden-spot/hidden-spot.component";
+import { MovieGridComponent } from '../../../components/movie-grid/movie-grid.component';
 
 @Component({
   selector: 'app-home',
