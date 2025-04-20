@@ -1,1 +1,13 @@
-<p>admin-layout works!</p>
+<div class="h-screen flex flex-col">
+ 
+  <app-admin-header></app-admin-header>
+
+  
+  <div class="flex flex-1">
+    <app-admin-sidebar class="w-64 bg-gray-300"></app-admin-sidebar>
+
+    <main class="flex-1 bg-white p-4 overflow-y-auto">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
