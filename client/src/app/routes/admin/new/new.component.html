@@ -1,1 +1,73 @@
-<p>new works!</p>
+
+<div class="p-6 bg-white shadow-md rounded-md">
+  <h1 class="font-bold text-2xl mb-4">Ny Film</h1>
+
+      <form [formGroup]="filmForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <div class="form-group">
+          <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+      <input 
+        class="border 1/6 p-1" 
+        type="text" 
+        id="title"  
+        formControlName="title">
+        </div>
+
+        <div>
+          <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+          <textarea
+          class="border w-2/6 p-1"
+          formControlName="description"
+          id="description">
+          </textarea>
+        </div>
+
+        <div>
+          <label for="imageURL" class="block text-sm font-medium text-gray-700">Image</label>
+          <input
+          class="border w-2/6 p-1"
+          formControlName="imageUrl" 
+          type="text"  
+          alt="Image">
+        </div>
+
+          <div>
+            <label for="genre" class="block text-sm font-medium text-gray-700">Genre</label>
+            <input
+            class="border w-2/6 p-1"
+            type="text" 
+            formControlName="genre" 
+            id="genre">
+            
+          </div>
+          <div>
+            <label for="director" class="block text-sm font-medium text-gray-700">Regissör</label>
+            <input
+            class="border w-1/8 p-1"
+            type="text" 
+            formControlName="director" 
+            id="director">
+          </div>
+          <div>
+            <label for="eidr" class="block text-sm font-medium text-gray-700">EIDR</label>
+            <input
+            class="border w-1/8 p-1"
+            type="text" 
+            formControlName="eidr" 
+            id="eidr">
+          </div>
+          <div>
+            <label for="price" class="block text-sm font-medium text-gray-700">Pris</label>
+            <input
+            class="border w-1/8 p-1"
+            type="number" 
+            formControlName="price" 
+            id="price">
+          </div>
+          <div>
+            <button class="border mt-4 px-4 py-1 rounded-lg cursor-pointer" type="submit">
+              Lägg till
+            </button>
+          </div>
+
+      </form>
+</div>

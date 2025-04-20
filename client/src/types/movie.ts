@@ -3,7 +3,9 @@ export interface films {
   title: string;
   genre: string;
   description: string;
+  director: string;
   imageUrl: string;
   price: number;
+  eidr: string;
   slug: string;
 }
