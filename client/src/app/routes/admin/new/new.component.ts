@@ -11,26 +11,20 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 })
 export class NewComponent {
 
-  filmForm!: FormGroup;
+  filmForm: FormGroup = new FormGroup({
+    title: new FormControl(''),
+    id: new FormControl(0),
+    description: new FormControl(''),
+    genre: new FormControl(''),
+    director: new FormControl(''),
+    price: new FormControl(0),
+    slug: new FormControl(''),
+    imageUrl: new FormControl(''),
+    eidr: new FormControl('')
+  });
 
   private http = inject(HttpClient)
   private router = inject(Router)
-
-    ngOnInit() {
-
-        this.filmForm = new FormGroup({
-        title: new FormControl(''),
-        id: new FormControl(''),
-        description: new FormControl(''),
-        genre: new FormControl(''),
-        director: new FormControl(''),
-        price: new FormControl(''),
-        slug: new FormControl(''),
-        imageUrl: new FormControl(''),
-        eidr: new FormControl(''),
-        
-      });
-    }
 
     onSubmit() {
       const film = this.filmForm.value;

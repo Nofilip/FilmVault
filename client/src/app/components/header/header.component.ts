@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHeart, faBasketShopping,faBars } from "@fortawesome/free-solid-svg-icons";
@@ -21,11 +21,10 @@ export class HeaderComponent {
 
   searchQuery: string = '';
 
-  constructor (private router: Router) {}
+  private router = inject(Router);
 
   onSearch() {
     if (this.searchQuery.trim()) {
-      console.log('Navigating to search with query:', this.searchQuery); 
       this.router.navigate(['/search'], {
         queryParams: { query: this.searchQuery }
       });

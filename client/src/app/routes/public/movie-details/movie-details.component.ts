@@ -23,10 +23,10 @@ export class MovieDetailsComponent {
 
   film!: films;
 
-  genre!: string
+  genre!: string;
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe(params => { 
       const slug = params.get('slug');
       if (slug) {
         this.http.get<films>(`/api/films/${slug}`)

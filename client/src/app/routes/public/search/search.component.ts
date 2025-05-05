@@ -35,7 +35,7 @@ export class SearchComponent implements OnInit {
             },
             error: err => {
               this.errorMessage = 'Ett fel inträffade vid sökningen. Försök igen senare.';
-              this.results = []; // säkerställ att inga gamla resultat hänger kvar
+              this.results = []; 
             }
           });
       }

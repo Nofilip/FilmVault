@@ -43,7 +43,6 @@ app.post('/api/films', (req, res) => {
 
 app.get('/api/films/search', (req, res) => {
   const query = req.query.query?.toString().toLowerCase();
-  console.log('Received query:', query); // Logga den mottagna queryn
 
   if (!query) {
     return res.status(400).json({ error: 'Ingen sökterm angiven' });
@@ -61,10 +60,10 @@ app.get('/api/films/search', (req, res) => {
 
     if (results.length === 0) {
       console.log('No results found for query:', query);
-      return res.json([]);  // Skicka en tom lista istället för 404
+      return res.json([]); 
     }
 
-    // Om resultat hittas, skicka tillbaka dem som JSON
+   
     res.json(results);
   } catch (err) {
     res.status(500).send("Något gick fel när vi hämtade filmerna.");
@@ -85,9 +84,6 @@ app.get("/api/films", (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Lyssnar på port ${port}`);
-});
 
 app.get("/api/films/:slug", (req, res) => {
   const slug = req.params.slug;
@@ -125,4 +121,8 @@ app.get('/api/films/genre/:genre/:id', (req, res) => {
     console.error(err);
     res.status(500).send("Något gick fel när vi hämtade filmerna.");
   }
+});
+
+app.listen(port, () => {
+  console.log(`Lyssnar på port ${port}`);
 });
